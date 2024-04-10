@@ -1,9 +1,9 @@
 RUN BITCOIN
-
+```
 bitcoind -daemon
 
 /usr/local/bin/bitcoin-qt
-
+```
 STOP
 
 bitcoin-cli stop
