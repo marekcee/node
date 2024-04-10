@@ -114,12 +114,16 @@ nordvpn d
 HARD DRIVE
 
 CLI
+```
 fdisk
 mkfs
+```
 
 GUI
+```
 sudo apt-get install gparted
-
+```
+```
 sudo blkid
 copy UUID
 sudo umount /dev/sda1
@@ -127,22 +131,23 @@ sudo mkdir /home/pi/.bitcoin
 sudo chown -R pi:pi /home/pi/.bitcoin
 sudo mount /dev/sda1 /home/pi/.bitcoin
 df -h
+```
 
 AUTOMOUNT
-
+```
 sudo nano /etc/fstab
 PARTUUID=********-** /home/pi/.bitcoin ext4 defaults,auto,users,rw,nofail 0 0
-
+```
 ------------------------------------------
 
 INSTALL BITCOIN CORE FROM DEV
 
 #Best to use other machine to verify SHAsums and signatures, input link after.
-
+```
 wget https://bitcoincore.org/bin/bitcoin-core-26.1/bitcoin-26.1-aarch64-linux-gnu.tar.gz
 tar xzf bitcoin-26.1-aarch64-linux-gnu.tar.gz
 sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-26.1/bin/*
-
+```
 non-standard dir: -datadir=/mnt/btc
 
 ------------------------------------------
