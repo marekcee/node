@@ -31,16 +31,20 @@ bitcoin-cli getconnectioncount
 ------------------------------------------
 
 NETWORK
+
+SSH
 ```
 ssh pi@192.168.1.X
 ssh pi@raspberry.local
 ```
 
-Mac Key Reset
+SSH Key Reset
 ```
 ssh-keygen -R 192.168.1.X
 rm -rf ~/.ssh/*
 ```
+
+NETWORK CONFIG
 ```
 nmtui
 ifconfig
