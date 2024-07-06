@@ -188,3 +188,23 @@ echo "de7ef83a663049b5244736d3eabaacec003eb294a4d6024a8fbe0394f22cc4e5  protonvp
 sudo apt install proton-vpn-gnome-desktop
 sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
 ```
+
+------------------------------------------
+
+SAMBA
+```
+sudo apt install samba
+sudo nano /etc/samba/smb.conf
+```
+add:
+```
+[sharename]
+path = /home/pi/shared
+writeable = yes
+browseable = yes
+public=no
+```
+```
+sudo smbpasswd -a pi
+sudo systemctl restart smbd
+```
