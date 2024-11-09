@@ -1,10 +1,16 @@
 Samba Config Example
-Based on the provided search results, here is a comprehensive Samba configuration example:
 
 Anonymous Share
-Create a directory for sharing: sudo mkdir /srv/samba
-Set permissions to allow anonymous access: sudo chmod a+rwx /srv/samba
+```
+sudo mkdir /srv/samba
+
+sudo chmod a+rwx /srv/samba
+```
+
 Edit the /etc/samba/smb.conf file:
+```
+sudo nano /etc/samba/smb.conf
+
 [global]
   workgroup = WORKGROUP
   server string = Samba Server
@@ -15,14 +21,25 @@ Edit the /etc/samba/smb.conf file:
   writable = yes
   read only = no
 
-Restart Samba: sudo systemctl restart smbd
+sudo systemctl restart smbd
+```
+
 Password-Protected Share
-Create a new group: sudo addgroup smbgrp
-Create a new user: sudo useradd shares -G smbgrp
-Set a password for the user: sudo smbpasswd -a shares
-Create a directory for the password-protected share: sudo mkdir -p /srv/samba-secured
-Set permissions: sudo chmod -R 0770 /srv/samba-secured and sudo chown root:smbgrp /srv/samba-secured
-Edit the /etc/samba/smb.conf file:
+```
+sudo addgroup smbgrp
+
+sudo useradd shares -G smbgrp
+
+sudo smbpasswd -a shares
+
+sudo mkdir -p /srv/samba-secured
+
+sudo chmod -R 0770 /srv/samba-secured
+sudo chown root:smbgrp /srv/samba-secured
+```
+```
+sudo nano /etc/samba/smb.conf
+
 [global]
   workgroup = WORKGROUP
   server string = Samba Server
@@ -34,9 +51,12 @@ Edit the /etc/samba/smb.conf file:
   writable = yes
   read only = no
 
-Restart Samba: sudo systemctl restart smbd
+sudo systemctl restart smbd
+```
+```
 Additional Configuration Options
-Set the log file location: log file = /var/log/samba-log.%m
+
+Set the log file location:log file = /var/log/samba-log.%m
 Set the maximum log file size: max log size = 50
 Specify the Kerberos or Active Directory realm: realm = MY_REALM
 Include additional configuration files: include = /usr/local/samba/lib/smb.conf.%m
@@ -45,3 +65,4 @@ Testing Changes
 Run testparm to verify the configuration file for errors.
 Restart Samba after making changes to the configuration file.
 Remember to customize the configuration options according to your specific environment and requirements. This example provides a basic outline for setting up anonymous and password-protected shares with Samba.
+```
