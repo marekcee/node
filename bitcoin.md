@@ -3,17 +3,15 @@ RUN BITCOIN
 bitcoind -daemon
 
 /usr/local/bin/bitcoin-qt
-```
-STOP
-```
+
 bitcoin-cli stop
 ```
 AUTOSTART
 ```
-crontab -e
+crontab -file
 @reboot /usr/local/bin/bitcoind -daemon
 ```
-CONFIG
+CONFIG F
 ```
 sudo nano /home/pi/.bitcoin/bitcoin.conf
 ```
