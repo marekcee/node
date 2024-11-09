@@ -53,9 +53,9 @@ sudo nano /etc/samba/smb.conf
 
 sudo systemctl restart smbd
 ```
-```
-Additional Configuration Options
 
+Additional Configuration Options
+```
 Set the log file location:log file = /var/log/samba-log.%m
 Set the maximum log file size: max log size = 50
 Specify the Kerberos or Active Directory realm: realm = MY_REALM
