@@ -1,14 +1,3 @@
-CLI INTERACTIONS
-```
-bitcoin-cli -getinfo
-bitcoin-cli -netinfo
-bitcoin-cli getblockchaininfo
-bitcoin-cli getblockcount
-bitcoin-cli getnetworkinfo
-bitcoin-cli getconnectioncount
-```
-------------------------------------------
-
 NETWORK
 
 SSH
@@ -36,7 +25,7 @@ RASPBERRY COMMANDS
 ```
 sudo raspi-config
 vcgencmd measure_temp
-sudo apt-get update && sudo apt-get upgrade
+sudo apt update && sudo apt upgrade
 ```
 ```
 top
@@ -70,15 +59,14 @@ listen=1
 bind=127.0.0.1
 ```
 ```
-sudo systemctl enable tor
-sudo systemctl start tor
-sudo systemctl start/stop tor
+sudo systemctl enable/disable tor
+sudo systemctl start/stop/restart tor
 ```
 ```
 ps -eo user,group,comm |egrep 'bitcoind|bitcoin-qt' |awk '{print "Bitcoin user: " $1}'
 usermod -a -G tor BITCOIN_USER
 ```
-#Group should be 'debian-tor'
+#Group should be 'debian-tor' on raspbian
 
 ------------------------------------------
 
@@ -104,7 +92,7 @@ mkfs
 
 GUI
 ```
-sudo apt-get install gparted
+sudo apt install gparted
 ```
 ```
 sudo blkid
