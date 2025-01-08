@@ -1,3 +1,24 @@
+Own Public Config
+```
+[public]
+
+path = /home/pi/.public
+browseable = yes
+writable = yes
+read only = no
+guest ok = yes
+create mask = 0644
+directory mask = 0755
+force user = pi
+
+
+[global]
+
+public = yes
+writable = yes
+guest account = pi
+```
+
 Samba Config Example
 
 Anonymous Share
