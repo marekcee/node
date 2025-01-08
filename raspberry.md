@@ -11,37 +11,11 @@ SSH Key Reset
 ssh-keygen -R 192.168.1.X
 rm -rf ~/.ssh/*
 ```
-
-NETWORK CONFIG
-```
-nmtui
-ifconfig
-iwlist rate
-nmcli
-```
-------------------------------------------
-
-RASPBERRY COMMANDS
-```
-sudo raspi-config
-vcgencmd measure_temp
-sudo apt update && sudo apt upgrade
-```
-```
-top
-htop
-free -h
-```
-```
-sudo reboot
-sudo shutdown -h now
-exit
-```
 ------------------------------------------
 
 TOR
 ```
-sudo apt-get install tor
+sudo apt install tor
 sudo nano /etc/tor/torrc
 ```
 
@@ -58,27 +32,9 @@ proxy=127.0.0.1:9050
 listen=1
 bind=127.0.0.1
 ```
-```
-sudo systemctl enable/disable tor
-sudo systemctl start/stop/restart tor
-```
-```
-ps -eo user,group,comm |egrep 'bitcoind|bitcoin-qt' |awk '{print "Bitcoin user: " $1}'
-usermod -a -G tor BITCOIN_USER
-```
-#Group should be 'debian-tor' on raspbian
 
-------------------------------------------
-
-NORD VPN
 ```
-sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
-```
-```
-nordvpn login (desktop and browser maybe necessary)
-nordvpn whitelist add subnet 192.168.1.0/24
-nordvpn c p2p / sk / sk59
-nordvpn d
+sudo usermod -a -G debian-tor pi
 ```
 ------------------------------------------
 
@@ -111,14 +67,13 @@ PARTUUID=********-** /home/pi/.bitcoin ext4 defaults,auto,users,rw,nofail 0 0
 ```
 ------------------------------------------
 
-INSTALL BITCOIN CORE FROM DEV
+INSTALL BITCOIN CORE
 
-#Best to use other machine to verify SHAsums and signatures, input link after.
+Best to use other machine to verify SHAsums and signatures, input link through SSH after.
 ```
-wget https://bitcoincore.org/bin/bitcoin-core-26.1/bitcoin-26.1-aarch64-linux-gnu.tar.gz
-tar xzf bitcoin-26.1-aarch64-linux-gnu.tar.gz
-sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-26.1/bin/*
+wget https://bitcoincore.org/bin/bitcoin-core-27.2/bitcoin-27.2-aarch64-linux-gnu.tar.gz
+tar xzf bitcoin-27.2-aarch64-linux-gnu.tar.gz
+sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-27.2/bin/*
 ```
-non-standard dir: -datadir=/mnt/btc
 
 ------------------------------------------
